@@ -5,7 +5,6 @@ import social from "../../../data/social";
 import Logo from "./components/logo";
 import HamburgerButton from "./components/burgerButton";
 import ColorModebutton from "./components/colorModeButton";
-import { VscNoNewline } from "react-icons/vsc";
 const NavigationBar = () => {
   return (
     <Box>
@@ -14,7 +13,7 @@ const NavigationBar = () => {
           className="poppins"
           alignItems={"center"}
           flex={1}
-          display={{ smDown:"none", sm: "none", md:"none", lg: "flex" }}
+          display={{ smDown: "none", sm: "none", md: "none", lg: "flex" }}
         >
           {social.map((item, index) => (
             <>

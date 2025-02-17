@@ -1,9 +1,10 @@
+import { Box } from "@chakra-ui/react";
 const Main = () => {
-    return (
-        <div>
-            <h1>main</h1>
-        </div>
-    )
-}
+  return (
+    <Box>
+        <h1>main</h1>
+    </Box>
+  );
+};
 
 export default Main;

@@ -2,7 +2,7 @@ import { Box } from "@chakra-ui/react";
 const Main = () => {
   return (
     <Box>
-        <h1>main</h1>
+        <h1>test fork changes</h1>
     </Box>
   );
 };

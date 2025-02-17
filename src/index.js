@@ -1,8 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-import { ChakraProvider, defaultSystem } from "@chakra-ui/react";
-import { ColorModeProvider } from "./components/ui/color-mode";
+import { Provider } from "./components/ui/provider";
+// import { ColorModeProvider } from "./components/ui/color-mode";
 import reportWebVitals from "./reportWebVitals";
 // layout
 import MainLayout from "./layout/main";
@@ -14,14 +14,13 @@ const HomePage = MainLayout(HomeView);
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <ChakraProvider value={defaultSystem}>
-      <ColorModeProvider />
+    <Provider>
       <Router>
         <Routes>
           <Route path="/" element={<HomePage />} />
         </Routes>
       </Router>
-    </ChakraProvider>
+    </Provider>
   </React.StrictMode>
 );
 

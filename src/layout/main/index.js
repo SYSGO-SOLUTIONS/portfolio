@@ -1,8 +1,8 @@
 import NavigationBar from "../../components/custom/navigationbar";
-import Footer from "../../components/custom/footer";
-import { Box } from "@chakra-ui/react";
+import { Box, Flex } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import { useColorModeValue } from "../../components/ui/color-mode";
+import SideNavigation from "../../components/custom/sidenav";
 
 const MotionBox = motion(Box);
 const MainLayout = (Component) => {
@@ -16,11 +16,16 @@ const MainLayout = (Component) => {
         width={"100vw"}
         maxW={"100vw"}
         maxH={"100vh"}
+        overflow={"hidden"}
         p={10}
       >
         <NavigationBar />
-        <Component {...props} />
-        <Footer />
+        <Box>
+          <Flex>
+            <SideNavigation />
+            <Component {...props} />
+          </Flex>
+        </Box>
       </MotionBox>
     );
   };

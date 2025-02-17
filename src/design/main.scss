@@ -1,0 +1,21 @@
+.circular-container {
+    position: relative;
+    width: 100px;
+    height: 100px;
+  }
+  
+  .circular-text {
+    width: 100px;
+    height: 100px;
+    transform: rotate(0deg);
+  }
+  
+  .center-logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 24px;
+    font-weight: bold;
+  }
+  

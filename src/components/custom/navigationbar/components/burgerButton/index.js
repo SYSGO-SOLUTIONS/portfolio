@@ -10,6 +10,7 @@ const HamburgerButton = () => {
   const hamburgerBackground = useColorModeValue("#000000", "#ffffff");
   return (
     <IconButton
+      display={{ sm: "flex", md: "none" }}
       aria-label="hamburger button"
       variant={"ghost"}
       rounded={"full"}
@@ -45,7 +46,7 @@ const HamburgerButton = () => {
           backgroundColor={hamburgerBackground}
           margin="3px 0"
           transform={isOpen ? "rotate(45deg)" : "rotate(0)"}
-          translate={isOpen ? "0px 3px" : "0 0"}
+          translate={isOpen ? "0px 4px" : "0 0"}
           transition={"all 0.3s ease-in-out"}
         ></Box>
       </Flex>

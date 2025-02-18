@@ -4,7 +4,7 @@ import "../../../../../design/fonts.scss";
 import { useColorModeValue } from "../../../../ui/color-mode";
 import { motion, AnimatePresence } from "framer-motion"; // Import AnimatePresence
 import route from "../../../../../routes";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import "../../../../../design/fonts.scss";
 import social from "../../../../../data/social";
 const MotionBox = motion(Box);
@@ -19,6 +19,7 @@ const HamburgerButton = () => {
   const lineBg1 = useColorModeValue("#ffffff", "#212121");
   const lineBg2 = useColorModeValue("#212121", "#ffffff");
   const line2TextColor = useColorModeValue("#ffffff", "#212121");
+  const location = useLocation();
   return (
     <Box position="relative">
       {/* Hamburger Button */}
@@ -82,7 +83,7 @@ const HamburgerButton = () => {
               left="0"
               width="100vw"
               height="100vh"
-              backgroundColor= {overlayBg}
+              backgroundColor={overlayBg}
               zIndex="999"
               display="flex"
               justifyContent="center"
@@ -144,14 +145,15 @@ const HamburgerButton = () => {
                 gap={"20px"}
                 textAlign={"center"}
               >
-                {route.map((item, index) => (
-                  <Link
+                {route.map((item, index) => {
+                  const isActive = location.pathname === item.path;
+                  return (
+                    <Link
                     key={index}
                     to={item.path}
                     className="chakra-petch-regular"
                     style={{
                       textDecoration: "none",
-                      color: "black",
                       fontSize: "0.8em",
                       fontWeight: "800",
                     }}
@@ -165,15 +167,13 @@ const HamburgerButton = () => {
                         transition: { duration: 0.3 },
                       }}
                     >
-                      <Text
-                        fontSize={"2xl"}
-                        color={textColor}
-                      >
+                      <Text fontSize={"2xl"} color={isActive ? "#FF7E21" : textColor}>
                         {item.name}
                       </Text>
                     </motion.div>
                   </Link>
-                ))}
+                  )
+                })}
               </Box>
 
               {/* line 2 - Animate width expansion */}

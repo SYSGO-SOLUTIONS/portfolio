@@ -3,8 +3,8 @@ import { useColorModeValue } from "../../../../ui/color-mode";
 
 import { Text } from "@chakra-ui/react";
 const BrandLogo = () => {
-  const brandTextColor = useColorModeValue("#fff", "#000");
-  const brandBackgroundColor = useColorModeValue("#000000", "#ffffff");
+  // const brandTextColor = useColorModeValue("#fff", "#000");
+  // const brandBackgroundColor = useColorModeValue("#000000", "#ffffff");
   const brandSloganTextColor = useColorModeValue("#000000", "#ffffff");
   return (
     <Box
@@ -33,21 +33,22 @@ const BrandLogo = () => {
             d="M 50, 50 m -30, 0 a 30,30 0 1,1 60,0 a 30,30 0 1,1 -60,0"
             style={{
               strokeWidth: "0.5",
+              stroke: "#FF7E21",
             }}
           />
           <text
             style={{
               fontSize: "10px",
               fill: brandSloganTextColor,
-              fontFamily: "poppins",
+              className: "chakra-petch-regular",
               letterSpacing: "1px",
             }}
           >
             <textPath href="#circlePath" startOffset="25%">
               SysGo
             </textPath>
-            <textPath href="#circlePath" startOffset="73%">
-              Solution
+            <textPath href="#circlePath" startOffset="70%">
+              Solutions
             </textPath>
           </text>
         </svg>
@@ -62,17 +63,16 @@ const BrandLogo = () => {
             transform: "translate(-50%, -50%)",
             width: "40px", // Adjust size as needed
             height: "40px",
-            backgroundColor: brandBackgroundColor, // Change to your desired color
+            backgroundColor: "#FF7E21", // Change to your desired color
             borderRadius: "50%",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
             fontSize: "20px",
             fontWeight: "bold",
-            color: brandTextColor,
           }}
         >
-          <Text className="chakra-petch-regular" color={brandTextColor}>
+          <Text className="chakra-petch-regular" color={"#f1f1f1"}>
             S
           </Text>
         </div>

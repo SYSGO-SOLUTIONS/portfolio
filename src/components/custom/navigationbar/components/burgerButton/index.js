@@ -24,7 +24,6 @@ const HamburgerButton = () => {
     <Box position="relative">
       {/* Hamburger Button */}
       <IconButton
-        display={{ sm: "flex", md: "none" }}
         aria-label="hamburger button"
         variant={"ghost"}
         rounded={"full"}
@@ -97,8 +96,8 @@ const HamburgerButton = () => {
                 transition={{ duration: 0.5 }}
                 style={{
                   position: "absolute",
-                  top: "70px",
-                  left: "-75px",
+                  top: "80px",
+                  left: "-70px",
                   backgroundColor: lineBg1,
                   height: "120px",
                   transform: "rotate(25deg)",
@@ -109,8 +108,7 @@ const HamburgerButton = () => {
               >
                 <Flex
                   height={"100%"}
-                  width={"80vw"}
-                  max-width={"400px"}
+                  width={{base:"80vw",md:"50vw",lg:"40vw"}}
                   alignItems={"center"}
                   justifyContent={"space-around"}
                 >
@@ -196,7 +194,7 @@ const HamburgerButton = () => {
               >
                 <Flex
                   height={"100%"}
-                  width={"80vw"}
+                  width={ {base:"80vw",md:"50vw",lg:"40vw"} }
                   alignItems={"center"}
                   justifyContent={"space-around"}
                 >

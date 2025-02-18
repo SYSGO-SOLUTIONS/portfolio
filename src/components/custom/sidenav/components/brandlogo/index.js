@@ -7,7 +7,14 @@ const BrandLogo = () => {
   const brandBackgroundColor = useColorModeValue("#000000", "#ffffff");
   const brandSloganTextColor = useColorModeValue("#000000", "#ffffff");
   return (
-    <Box mb={5}>
+    <Box
+      mb={5}
+      _hover={{
+        cursor: "pointer",
+        transform: "scale(1.1)",
+        transition: "transform 0.3s ease-in-out",
+      }}
+    >
       <div
         className="circular-container"
         style={{

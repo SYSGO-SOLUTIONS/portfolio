@@ -1,4 +1,4 @@
-import { Flex } from "@chakra-ui/react";
+import { Box, Flex } from "@chakra-ui/react";
 import { Link, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 import routes from "../../../../../routes";
@@ -24,19 +24,18 @@ const SideNavLinks = () => {
             key={index}
             to={item.path}
             className="chakra-petch-regular"
-            initial={{ rotate: -90, opacity: 0.7 }}
+            initial={{ opacity: 0.7 }}
             whileHover={{
-              y: -5,
-              scale: 1.1,
+              scale: 1.2, // Slight zoom on hover
+              rotate: 5, // Slight rotation on hover (same as NavigationBar)
               opacity: 1,
             }}
             animate={{
-              rotate: -90,
-              opacity: isActive ? 1 : 0.7, // Set full opacity for active link
-              y: 0,
+              opacity: isActive ? 1 : 0.7, // Highlight active link
               scale: 1,
+              rotate: 0, // Reset rotation when not hovered
             }}
-            transition={{ duration: 0.3, ease: "easeOut" }}
+            transition={{ type: "spring", stiffness: 300 }}
             style={{
               display: "inline-block",
               textDecoration: "none",
@@ -46,10 +45,12 @@ const SideNavLinks = () => {
               color: isActive ? "#FF7E21" : "inherit",
             }}
           >
-            {item.name}
+            {item.icon}
           </MotionLink>
         );
       })}
+
+      <Box></Box>
     </Flex>
   );
 };

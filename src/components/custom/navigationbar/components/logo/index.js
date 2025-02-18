@@ -13,7 +13,7 @@ export default function Logo(props) {
       transition={{ duration: 0.8, ease: "easeOut" }} // Smooth animation
     >
       <Text className="chakra-petch-regular" textStyle={"5xl"} flex={1}>
-        SysGo
+        Sys<Text as={"span"} color="#FF7E21">Go</Text>
       </Text>
     </MotionBox>
   );

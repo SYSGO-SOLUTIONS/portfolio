@@ -1,7 +1,7 @@
 import { Flex } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-
+import routes from "../../../../../routes";
 const MotionLink = motion(Link);
 
 const SideNavLinks = () => {
@@ -13,12 +13,12 @@ const SideNavLinks = () => {
       justifyContent="space-evenly"
       alignItems="center"
     >
-      {["Home", "About", "Projects", "Contact"].map((item, index) => (
+      {routes.map((item, index) => (
         <MotionLink
           key={index}
-          to={`/${item.toLowerCase()}`} // Ensures correct routing
+          to={item.path} // Ensures correct routing
           className="roboto"
-          initial={{ rotate: -90, opacity: 0.7}}
+          initial={{ rotate: -90, opacity: 0.7 }}
           whileHover={{
             y: -5, // Moves slightly upward
             scale: 1.1, // Slight scale effect
@@ -35,7 +35,7 @@ const SideNavLinks = () => {
             textTransform: "uppercase",
           }}
         >
-          {item}
+          {item.name}
         </MotionLink>
       ))}
     </Flex>

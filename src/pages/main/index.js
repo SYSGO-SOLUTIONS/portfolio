@@ -2,9 +2,11 @@ import { Box, Text, Flex } from "@chakra-ui/react";
 import "../../design/fonts.scss";
 import "../../design/main.scss";
 import { useColorModeValue } from "../../components/ui/color-mode";
+import AnimatedText from "./components/animatedText";
 const Main = () => {
   const lineBottomBg = useColorModeValue("#fff", "#212121");
   const lineBottomTextColor = useColorModeValue("#000", "#fff");
+  const subHeadingTextColor = useColorModeValue("#000", "#f1f1f1");
   return (
     <>
       <Box h={"80vh"} w={"100%"}>
@@ -20,22 +22,56 @@ const Main = () => {
             width={{ base: "40vw", smDown: "90vw", md: "400px", lg: "480px" }}
             display={"flex"}
             alignItems={"center"}
+            mb={0}
           >
             <Text
-              fontSize={{ base: "7xl", smDown: "7xl", md: "7xl" }}
+              fontSize={{ base: "3xl", smDown: "3xl", md: "3xl" }}
               className="chakra-petch-regular itlog"
               style={{ letterSpacing: "0.1rem" }}
+              color={subHeadingTextColor}
+              opacity={0.7}
             >
-              SysGo
+              SysGo Solutions
+            </Text>
+          </Box>
+          <Box
+            height={"auto"}
+            width={{ base: "40vw", smDown: "90vw", md: "400px", lg: "480px" }}
+            display={"flex"}
+            alignItems={"center"}
+          >
+            <Text
+              fontSize={{ base: "5xl", smDown: "5xl", md: "7xl" }}
+              className="chakra-petch-regular"
+              style={{ letterSpacing: "0.1rem" }}
+            >
+              Empowering
             </Text>
             <Box
               flexGrow={1}
               height="5px"
-              bg="white"
+              bg={"#7E7E7E"}
               ml={2}
               borderRightRadius={"lg"}
               borderLeftRadius={"sm"}
             />
+          </Box>
+
+          <Box
+            height={"auto"}
+            width={{ base: "40vw", smDown: "90vw", md: "400px", lg: "480px" }}
+            display={"flex"}
+            alignItems={"center"}
+          >
+            <Text
+              className="chakra-petch-regular"
+              textTransform={"uppercase"}
+              textStyle={"4xl"}
+              letterSpacing={"0.1rem"}
+              fontWeight={500}
+            >
+              <span class="typewriter"></span>
+            </Text>
           </Box>
         </Flex>
       </Box>

@@ -21,58 +21,24 @@ const MainLayout = (Component) => {
     const bodyBackground = useColorModeValue("#fafafa", "#000000");
 
     return (
-      <>
-        <AnimatePresence>
-          {isLoading ? (
-            <motion.div
-              key="loader"
-              initial={{ opacity: 1, scale: 1 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.8 }} // Exit animation
-              transition={{ duration: 0.5, ease: "easeInOut" }}
-              style={{
-                display: "flex",
-                height: "100vh",
-                width: "100vw",
-                justifyContent: "center",
-                alignItems: "center",
-                overflow: "hidden",
-              }}
-            >
-              <div className="loader">
-                <div className="loader-square"></div>
-                <div className="loader-square"></div>
-                <div className="loader-square"></div>
-                <div className="loader-square"></div>
-                <div className="loader-square"></div>
-                <div className="loader-square"></div>
-                <div className="loader-square"></div>
-              </div>
-            </motion.div>
-          ) : null}
-        </AnimatePresence>
-
-        {!isLoading && (
-          <MotionBox
-            animate={{ backgroundColor: bodyBackground }}
-            transition={{ duration: 0.5, ease: "easeInOut" }}
-            height={"100vh"}
-            width={"100vw"}
-            maxW={"100vw"}
-            maxH={"100vh"}
-            overflow={"hidden"}
-            p={10}
-          >
-            <NavigationBar />
-            <Box>
-              <Flex>
-                <SideNavigation />
-                <Component {...props} />
-              </Flex>
-            </Box>
-          </MotionBox>
-        )}
-      </>
+      <MotionBox
+        animate={{ backgroundColor: bodyBackground }}
+        transition={{ duration: 0.5, ease: "easeInOut" }}
+        height={"100vh"}
+        width={"100vw"}
+        maxW={"100vw"}
+        maxH={"100vh"}
+        overflow={"hidden"}
+        p={10}
+      >
+        <NavigationBar />
+        <Box>
+          <Flex>
+            <SideNavigation />
+            <Component {...props} />
+          </Flex>
+        </Box>
+      </MotionBox>
     );
   };
 

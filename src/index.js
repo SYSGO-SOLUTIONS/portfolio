@@ -8,9 +8,17 @@ import reportWebVitals from "./reportWebVitals";
 import MainLayout from "./layout/main";
 // pages
 import HomeView from "./pages/main";
+import AboutView from "./pages/about";
+import ProjectsView from "./pages/projects";
+import ContactView from "./pages/contact";
+import TestimoniesView from "./pages/testimonies";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 // components
 const HomePage = MainLayout(HomeView);
+const AboutPage = MainLayout(AboutView);
+const ProjectsPage = MainLayout(ProjectsView);
+const ContactPage = MainLayout(ContactView);
+const TestimoniesPage = MainLayout(TestimoniesView);
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
@@ -18,6 +26,10 @@ root.render(
       <Router>
         <Routes>
           <Route path="/" element={<HomePage />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/projects" element={<ProjectsPage />} />
+          <Route path="/contact" element={<ContactPage />} />
+          <Route path="/testimonies" element={<TestimoniesPage />} />
         </Routes>
       </Router>
     </Provider>

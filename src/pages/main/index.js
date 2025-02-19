@@ -1,160 +1,103 @@
 import { Box, Text, Flex } from "@chakra-ui/react";
-import "../../design/fonts.scss";
-import "../../design/main.scss";
+import { motion } from "framer-motion";
 import { useColorModeValue } from "../../components/ui/color-mode";
 import AnimatedText from "./components/animatedText";
+import "../../design/fonts.scss";
+import "../../design/main.scss";
+
+const MotionBox = motion(Box);
+const MotionText = motion(Text);
+
 const Main = () => {
   const lineBottomBg = useColorModeValue("#fff", "#212121");
   const lineBottomTextColor = useColorModeValue("#000", "#fff");
   const subHeadingTextColor = useColorModeValue("#000", "#f1f1f1");
+
   return (
-    <>
-      <Box h={"80vh"} w={"100%"}>
-        <Flex
-          height={"100%"}
+    <Box h={"80vh"} w={"100%"}>
+      <Flex
+        height={"100%"}
+        alignItems={"center"}
+        justifyContent={"center"}
+        p={"20"}
+        direction={"column"}
+      >
+        {/* Company Name */}
+        <Box
+          height={"auto"}
+          width={{ base: "40vw", smDown: "90vw", md: "400px", lg: "480px" }}
+          display={"flex"}
           alignItems={"center"}
-          justifyContent={"center"}
-          p={"20"}
-          direction={"column"}
+          mb={0}
         >
-          <Box
-            height={"auto"}
-            width={{ base: "40vw", smDown: "90vw", md: "400px", lg: "480px" }}
-            display={"flex"}
-            alignItems={"center"}
-            mb={0}
+          <MotionText
+            fontSize={{ base: "3xl", smDown: "3xl", md: "3xl" }}
+            className="chakra-petch-regular itlog"
+            style={{ letterSpacing: "0.1rem" }}
+            color={subHeadingTextColor}
+            opacity={0.7}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1 }}
           >
-            <Text
-              fontSize={{ base: "3xl", smDown: "3xl", md: "3xl" }}
-              className="chakra-petch-regular itlog"
-              style={{ letterSpacing: "0.1rem" }}
-              color={subHeadingTextColor}
-              opacity={0.7}
-            >
-              SysGo Solutions
-            </Text>
-          </Box>
-          <Box
-            height={"auto"}
-            width={{ base: "40vw", smDown: "90vw", md: "400px", lg: "480px" }}
-            display={"flex"}
-            alignItems={"center"}
+            SysGo Solutions
+          </MotionText>
+        </Box>
+
+        {/* Empowering + Swipe Reveal */}
+        <Box
+          height={"auto"}
+          width={{ base: "40vw", smDown: "90vw", md: "400px", lg: "480px" }}
+          display={"flex"}
+          alignItems={"center"}
+          position="relative"
+          overflow="hidden"
+        >
+          {/* Swipe Reveal Box */}
+          <MotionBox
+            position="absolute"
+            top={0}
+            left={0}
+            width="100%"
+            height="100%"
+            bg="blue.500"
+            zIndex={2}
+            initial={{ x: 0 }}
+            animate={{ x: "100%" }}
+            transition={{ duration: 1, ease: "easeInOut" }}
+          />
+
+          {/* Empowering Text */}
+          <MotionText
+            fontSize={{ base: "5xl", smDown: "5xl", md: "7xl" }}
+            className="chakra-petch-regular"
+            style={{ letterSpacing: "0.1rem" }}
+            zIndex={3}
           >
-            <Text
-              fontSize={{ base: "5xl", smDown: "5xl", md: "7xl" }}
-              className="chakra-petch-regular"
-              style={{ letterSpacing: "0.1rem" }}
-            >
-              Empowering
-            </Text>
-            <Box
-              flexGrow={1}
-              height="5px"
-              bg={"#7E7E7E"}
-              ml={2}
-              borderRightRadius={"lg"}
-              borderLeftRadius={"sm"}
-            />
-          </Box>
+            Empowering
+          </MotionText>
 
           <Box
-            height={"auto"}
-            width={{ base: "40vw", smDown: "90vw", md: "400px", lg: "480px" }}
-            display={"flex"}
-            alignItems={"center"}
-          >
-            <Text
-              className="chakra-petch-regular"
-              textTransform={"uppercase"}
-              textStyle={"4xl"}
-              letterSpacing={"0.1rem"}
-              fontWeight={500}
-            >
-              <span class="typewriter"></span>
-            </Text>
-          </Box>
-        </Flex>
-      </Box>
-      <Box
-        h={"90px"}
-        minW={"150vw"} // Responsive min-width
-        bg={lineBottomBg}
-        position={"absolute"}
-        bottom={"10vh"} // Responsive positioning
-        transform={"rotate(-45deg)"} // Responsive rotation
-        left={0} // Responsive left offset
-        boxShadow={"0px 0px 10px rgba(0, 0, 0, 0.3)"}
-        display={"flex"}
-        justifyContent={"center"}
-        alignItems={"center"}
-        className="chakra-petch-regular"
-        z-index={10}
-      >
+            flexGrow={1}
+            height="5px"
+            bg={"#7E7E7E"}
+            ml={2}
+            borderRightRadius={"lg"}
+            borderLeftRadius={"sm"}
+          />
+        </Box>
+
+        {/* Animated Text */}
         <Box
-          w={"90vw"}
-          height={"100%"}
-          // bg={"red"}
+          height={"auto"}
+          width={{ base: "40vw", smDown: "90vw", md: "400px", lg: "480px" }}
           display={"flex"}
-          justifyContent={"space-between"}
           alignItems={"center"}
         >
-          <Text color={lineBottomTextColor}>Innovate</Text>
-          <Box
-            width="8px"
-            height="8px"
-            borderRadius="50%"
-            backgroundColor="#FF7E21"
-          />
-          <Text color={lineBottomTextColor}>Design </Text>
-          <Box
-            width="8px"
-            height="8px"
-            borderRadius="50%"
-            backgroundColor="#FF7E21"
-          />
-          <Text color={lineBottomTextColor}>Develop</Text>
-          <Box
-            width="8px"
-            height="8px"
-            borderRadius="50%"
-            backgroundColor="#FF7E21"
-            display={{ base: "none", sm: "none", md: "block", lg: "block" }}
-          />
-          <Text
-            color={lineBottomTextColor}
-            display={{ base: "none", sm: "none", md: "block", lg: "block" }}
-          >
-            Optimize{" "}
-          </Text>
-          <Box
-            width="8px"
-            height="8px"
-            borderRadius="50%"
-            backgroundColor="#FF7E21"
-            display={{ base: "none", sm: "none", md: "block", lg: "block" }}
-          />
-          <Text
-            color={lineBottomTextColor}
-            display={{ base: "none", sm: "none", md: "block", lg: "block" }}
-          >
-            Launch
-          </Text>
-          <Box
-            width="8px"
-            height="8px"
-            borderRadius="50%"
-            backgroundColor="#FF7E21"
-            display={{ base: "none", sm: "none", md: "block", lg: "block" }}
-          />
-          <Text
-            color={lineBottomTextColor}
-            display={{ base: "none", sm: "none", md: "block", lg: "block" }}
-          >
-            Scale
-          </Text>
+          <AnimatedText fontSize="4xl" color={subHeadingTextColor} />
         </Box>
-      </Box>
-    </>
+      </Flex>
+    </Box>
   );
 };
 

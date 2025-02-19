@@ -1,38 +1,53 @@
+import { Text } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
-import {FaPlus} from "react-icons/fa6"
-import { Box } from "@chakra-ui/react";
-import "../../../../design/main.scss"
-export default function AnimatedText() {
-  const texts = ["Businesses", "Individuals"];
+
+const words = ["Businesses", "Individuals", "Startups"];
+
+const AnimatedText = ({ fontSize, color }) => {
   const [index, setIndex] = useState(0);
+  const [displayText, setDisplayText] = useState("");
+  const [isDeleting, setIsDeleting] = useState(false);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setIndex((prevIndex) => (prevIndex + 1) % texts.length);
-    }, 3000);
-    return () => clearInterval(interval);
-  }, []);
+    const currentWord = words[index];
+    let timeout;
+
+    if (isDeleting) {
+      timeout = setTimeout(() => {
+        setDisplayText((prev) => prev.slice(0, -1));
+        if (displayText === "") {
+          setIsDeleting(false);
+          setIndex((prev) => (prev + 1) % words.length);
+        }
+      }, 100);
+    } else {
+      timeout = setTimeout(() => {
+        setDisplayText((prev) => currentWord.slice(0, prev.length + 1));
+        if (displayText === currentWord) {
+          setTimeout(() => setIsDeleting(true), 1500);
+        }
+      }, 150);
+    }
+
+    return () => clearTimeout(timeout);
+  }, [displayText, isDeleting, index]);
 
   return (
-    <Box
-      as={motion.div}
-      height="auto"
-      width={{ base: "40vw", smDown: "90vw", md: "400px", lg: "480px" }}
-      display="flex"
-      fontSize="1.5rem"
-      overflow="hidden"
-      className="chakra-petch-regular"
+    <motion.span
+      key={displayText}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.5 }}
+      style={{ color }}
+      textStyle={fontSize}
     >
-      <motion.div
-        key={texts[index]}
-        initial={{ x: "-100%", opacity: 0 }}
-        animate={{ x: 0, opacity: 1 }}
-        exit={{ x: "100%", opacity: 0 }}
-        transition={{ duration: 0.6, ease: "easeInOut" }}
-      >
-        {texts[index]}
-      </motion.div>
-    </Box>
+      <Text className="chakra-petch-regular" textStyle={fontSize} fontWeight={500} letterSpacing={"0.1rem"}>
+        {displayText}
+      </Text>
+    </motion.span>
   );
-}
+};
+
+export default AnimatedText;

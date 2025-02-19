@@ -37,7 +37,7 @@ const Main = () => {
               opacity={0.7}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1 }}
+              transition={{ duration: .4 }}
             >
               SysGo{" "}
               <Text as={"span"} color={"#FF7E21"}>
@@ -57,24 +57,26 @@ const Main = () => {
           >
             {/* Swipe Reveal Box */}
             <MotionBox
-              position="absolute"
-              top={0}
-              left={0}
-              width="100%"
-              height="100%"
-              bg="blue.500"
-              zIndex={2}
-              initial={{ x: 0 }}
-              animate={{ x: "100%" }}
-              transition={{ duration: 1, ease: "easeInOut" }}
-            />
+  position="absolute"
+  top={0}
+  left={0}
+  width="100%"
+  height="100%"
+  bg="#FF7E21"
+  zIndex={2}
+  initial={{ x: 0 }}
+  animate={{ x: "100%" }}
+  transition={{ duration: 1, ease: "easeInOut" }}
+  clipPath="polygon(0% 0%, 100% 0%, 90% 100%, 0% 100%)"
+/>
+
 
             {/* Empowering Text */}
             <MotionText
               fontSize={{ base: "5xl", smDown: "5xl", md: "7xl" }}
               className="chakra-petch-regular"
               style={{ letterSpacing: "0.1rem" }}
-              zIndex={3}
+              zIndex={1}
             >
               Empowering
             </MotionText>

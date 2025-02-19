@@ -9,6 +9,7 @@ import AboutView from "./pages/about";
 import ProjectsView from "./pages/projects";
 import ContactView from "./pages/contact";
 import TestimoniesView from "./pages/testimonies";
+import Services from "./pages/services";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import "./design/main.scss";
@@ -19,6 +20,7 @@ const AboutPage = MainLayout(AboutView);
 const ProjectsPage = MainLayout(ProjectsView);
 const ContactPage = MainLayout(ContactView);
 const TestimoniesPage = MainLayout(TestimoniesView);
+const ServicesPage = MainLayout(Services);
 
 const App = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -64,6 +66,7 @@ const App = () => {
               <Route path="/projects" element={<ProjectsPage />} />
               <Route path="/contact" element={<ContactPage />} />
               <Route path="/testimonies" element={<TestimoniesPage />} />
+              <Route path="/services" element={<ServicesPage />} />
             </Routes>
           </Router>
         )}

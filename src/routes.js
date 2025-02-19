@@ -4,6 +4,7 @@ import {
   FaHouse,
   FaLaptopCode,
   FaCommentDots,
+  FaCode
 } from "react-icons/fa6";
 const routes = [
   {
@@ -30,6 +31,10 @@ const routes = [
     path: "/testimonies",
     icon: <Icon as={FaCommentDots} />,
   },
+  {
+    name: "Services",
+    path: "/services",
+    icon: <Icon as={FaCode} />,}
 ];
 
 export default routes;

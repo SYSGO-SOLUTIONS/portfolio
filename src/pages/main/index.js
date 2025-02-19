@@ -39,7 +39,10 @@ const Main = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1 }}
             >
-              SysGo Solutions
+              SysGo{" "}
+              <Text as={"span"} color={"#FF7E21"}>
+                Solutions
+              </Text>
             </MotionText>
           </Box>
 
@@ -79,7 +82,7 @@ const Main = () => {
             <Box
               flexGrow={1}
               height="5px"
-              bg={"#7E7E7E"}
+              bg={"#FF7E21"}
               ml={2}
               borderRightRadius={"lg"}
               borderLeftRadius={"sm"}

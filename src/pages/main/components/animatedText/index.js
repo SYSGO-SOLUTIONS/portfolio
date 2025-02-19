@@ -40,10 +40,15 @@ const AnimatedText = ({ fontSize, color }) => {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}
-      style={{ color }}
       textStyle={fontSize}
     >
-      <Text className="chakra-petch-regular" textStyle={fontSize} fontWeight={500} letterSpacing={"0.1rem"}>
+      <Text
+        opacity={0.7}
+        className="chakra-petch-regular"
+        textStyle={fontSize}
+        fontWeight={500}
+        letterSpacing={"0.1rem"}
+      >
         {displayText}
       </Text>
     </motion.span>

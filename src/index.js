@@ -12,7 +12,8 @@ import TestimoniesView from "./pages/testimonies";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import "./design/main.scss";
-
+import { useColorModeValue, useColorMode } from "./components/ui/color-mode";
+import { Box } from "@chakra-ui/react";
 // Pages wrapped with MainLayout
 const HomePage = MainLayout(HomeView);
 const AboutPage = MainLayout(AboutView);
@@ -22,13 +23,13 @@ const TestimoniesPage = MainLayout(TestimoniesView);
 
 const App = () => {
   const [isLoading, setIsLoading] = useState(true);
-
+  const loaderBackground = useColorModeValue("#000", "blue");
+  const { colorMode, setColorMode } = useColorMode();
   useEffect(() => {
     setTimeout(() => {
       setIsLoading(false);
     }, 3000); // Adjust loading duration as needed
   }, []);
-
   return (
     <Provider>
       <AnimatePresence>
@@ -48,15 +49,15 @@ const App = () => {
               overflow: "hidden",
             }}
           >
-            <div className="loader">
-              <div className="loader-square"></div>
-              <div className="loader-square"></div>
-              <div className="loader-square"></div>
-              <div className="loader-square"></div>
-              <div className="loader-square"></div>
-              <div className="loader-square"></div>
-              <div className="loader-square"></div>
-            </div>
+            <Box className="loader">
+              <Box className="loader-square" bg={"#FF7E21"}></Box>
+              <Box className="loader-square" bg={"#FF7E21"}></Box>
+              <Box className="loader-square" bg={"#FF7E21"}></Box>
+              <Box className="loader-square" bg={"#FF7E21"}></Box>
+              <Box className="loader-square" bg={"#FF7E21"}></Box>
+              <Box className="loader-square" bg={"#FF7E21"}></Box>
+              <Box className="loader-square" bg={"#FF7E21"}></Box>
+            </Box>
           </motion.div>
         ) : (
           <Router>

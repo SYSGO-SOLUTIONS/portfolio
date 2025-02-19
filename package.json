@@ -21,6 +21,7 @@
     "react-scroll": "^1.9.2",
     "sass": "^1.85.0",
     "three": "^0.173.0",
+    "vanta": "^0.5.24",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

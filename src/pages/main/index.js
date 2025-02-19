@@ -66,7 +66,7 @@ const Main = () => {
   zIndex={2}
   initial={{ x: 0 }}
   animate={{ x: "100%" }}
-  transition={{ duration: 1, ease: "easeInOut" }}
+  transition={{ duration: 1, ease: "easeOut" }}
   clipPath="polygon(0% 0%, 100% 0%, 90% 100%, 0% 100%)"
 />
 

@@ -12,7 +12,6 @@ import TestimoniesView from "./pages/testimonies";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import "./design/main.scss";
-import { useColorModeValue, useColorMode } from "./components/ui/color-mode";
 import { Box } from "@chakra-ui/react";
 // Pages wrapped with MainLayout
 const HomePage = MainLayout(HomeView);
@@ -23,8 +22,6 @@ const TestimoniesPage = MainLayout(TestimoniesView);
 
 const App = () => {
   const [isLoading, setIsLoading] = useState(true);
-  const loaderBackground = useColorModeValue("#000", "blue");
-  const { colorMode, setColorMode } = useColorMode();
   useEffect(() => {
     setTimeout(() => {
       setIsLoading(false);
